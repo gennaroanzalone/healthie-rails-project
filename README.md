@@ -28,7 +28,7 @@ Provider ──< Membership >── Client ──< JournalEntry
 | A client's journal entries, by date | `client.journal_entries.oldest_first` |
 | All entries across a provider's clients, by date | `provider.client_journal_entries` |
 
-`JournalEntry.oldest_first` orders by `created_at` ascending. `Provider#client_journal_entries`
+`JournalEntry.oldest_first` orders by `created_at` ascending (with `id` as a tiebreaker). `Provider#client_journal_entries`
 aggregates across every client via a single subquery on the join table (no N+1) — see
 [`app/models/provider.rb`](app/models/provider.rb).
 
